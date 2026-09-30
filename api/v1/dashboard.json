@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-29T06:58:03.534Z",
+  "generated_at": "2026-09-30T06:46:33.372Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -465,7 +465,7 @@
         },
         {
           "date": "2026-09-17",
-          "count": 0
+          "count": 74
         },
         {
           "date": "2026-09-18",
@@ -506,12 +506,16 @@
         {
           "date": "2026-09-27",
           "count": 98
+        },
+        {
+          "date": "2026-09-28",
+          "count": 145
         }
       ],
       "totals": {
-        "all": 6437,
-        "last_7_days": 467,
-        "last_30_days": 2637
+        "all": 6656,
+        "last_7_days": 540,
+        "last_30_days": 2830
       },
       "release": {
         "tag": "v2.11.0",
@@ -552,10 +556,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-06-30",
-          "count": 771
-        },
         {
           "date": "2026-07-01",
           "count": 453
@@ -915,12 +915,16 @@
         {
           "date": "2026-09-28",
           "count": 490
+        },
+        {
+          "date": "2026-09-29",
+          "count": 440
         }
       ],
       "totals": {
-        "all": 58110,
-        "last_7_days": 3624,
-        "last_30_days": 14124
+        "all": 58550,
+        "last_7_days": 3637,
+        "last_30_days": 14225
       },
       "release": {
         "tag": "v2.11.0",
@@ -1136,14 +1140,34 @@
         {
           "date": "2026-09-23",
           "count": 86
+        },
+        {
+          "date": "2026-09-24",
+          "count": 41
+        },
+        {
+          "date": "2026-09-25",
+          "count": 5
+        },
+        {
+          "date": "2026-09-26",
+          "count": 8
+        },
+        {
+          "date": "2026-09-27",
+          "count": 5
+        },
+        {
+          "date": "2026-09-28",
+          "count": 4
         }
       ],
       "totals": {
-        "all": 1551,
-        "last_7_days": 292,
-        "last_30_days": 1261
+        "all": 1614,
+        "last_7_days": 202,
+        "last_30_days": 1202
       },
-      "unique_cloners_14_days": 293,
+      "unique_cloners_14_days": 239,
       "release": {
         "tag": "v2.11.0",
         "published_at": "2026-09-23T16:11:37Z",
