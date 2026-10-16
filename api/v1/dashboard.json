@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T05:55:53.740Z",
+  "generated_at": "2026-10-16T05:54:00.410Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -570,12 +570,16 @@
         {
           "date": "2026-10-13",
           "count": 0
+        },
+        {
+          "date": "2026-10-14",
+          "count": 0
         }
       ],
       "totals": {
         "all": 8281,
-        "last_7_days": 734,
-        "last_30_days": 2867
+        "last_7_days": 605,
+        "last_30_days": 2817
       },
       "release": {
         "tag": "v2.12.0",
@@ -616,10 +620,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-07-16",
-          "count": 385
-        },
         {
           "date": "2026-07-17",
           "count": 387
@@ -975,12 +975,16 @@
         {
           "date": "2026-10-13",
           "count": 776
+        },
+        {
+          "date": "2026-10-14",
+          "count": 568
         }
       ],
       "totals": {
-        "all": 66132,
-        "last_7_days": 4316,
-        "last_30_days": 16093
+        "all": 66700,
+        "last_7_days": 4193,
+        "last_30_days": 16236
       },
       "release": {
         "tag": "v2.12.0",
@@ -1276,14 +1280,18 @@
         {
           "date": "2026-10-13",
           "count": 4
+        },
+        {
+          "date": "2026-10-14",
+          "count": 4
         }
       ],
       "totals": {
-        "all": 2087,
-        "last_7_days": 435,
-        "last_30_days": 1249
+        "all": 2091,
+        "last_7_days": 416,
+        "last_30_days": 1145
       },
-      "unique_cloners_14_days": 192,
+      "unique_cloners_14_days": 190,
       "release": {
         "tag": "v2.12.0",
         "published_at": "2026-10-08T22:30:26Z",
