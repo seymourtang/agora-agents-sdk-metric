@@ -3,16 +3,11 @@
   "provider": "github",
   "repository": "AgoraIO/agora-agents-go",
   "metric": "clones",
-  "collected_at": "2026-10-22T06:08:41Z",
+  "collected_at": "2026-10-23T06:03:50Z",
   "window_days": 14,
-  "count": 512,
-  "uniques": 201,
+  "count": 510,
+  "uniques": 206,
   "daily": [
-    {
-      "date": "2026-10-07",
-      "count": 23,
-      "uniques": 8
-    },
     {
       "date": "2026-10-08",
       "count": 43,
@@ -77,6 +72,11 @@
       "date": "2026-10-20",
       "count": 40,
       "uniques": 16
+    },
+    {
+      "date": "2026-10-21",
+      "count": 21,
+      "uniques": 13
     }
   ]
 }
