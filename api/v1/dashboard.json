@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T05:57:07.887Z",
+  "generated_at": "2026-10-25T06:11:32.996Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -606,12 +606,16 @@
         {
           "date": "2026-10-22",
           "count": 263
+        },
+        {
+          "date": "2026-10-23",
+          "count": 0
         }
       ],
       "totals": {
         "all": 8789,
-        "last_7_days": 508,
-        "last_30_days": 2642
+        "last_7_days": 397,
+        "last_30_days": 2497
       },
       "release": {
         "tag": "v2.12.0",
@@ -652,10 +656,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-07-25",
-          "count": 343
-        },
         {
           "date": "2026-07-26",
           "count": 368
@@ -1011,12 +1011,20 @@
         {
           "date": "2026-10-22",
           "count": 302
+        },
+        {
+          "date": "2026-10-23",
+          "count": 278
+        },
+        {
+          "date": "2026-10-24",
+          "count": 282
         }
       ],
       "totals": {
-        "all": 70289,
-        "last_7_days": 3106,
-        "last_30_days": 15376
+        "all": 70849,
+        "last_7_days": 2788,
+        "last_30_days": 14632
       },
       "release": {
         "tag": "v2.12.0",
@@ -1348,14 +1356,22 @@
         {
           "date": "2026-10-22",
           "count": 2
+        },
+        {
+          "date": "2026-10-23",
+          "count": 12
+        },
+        {
+          "date": "2026-10-24",
+          "count": 8
         }
       ],
       "totals": {
-        "all": 2187,
-        "last_7_days": 87,
-        "last_30_days": 722
+        "all": 2207,
+        "last_7_days": 91,
+        "last_30_days": 615
       },
-      "unique_cloners_14_days": 195,
+      "unique_cloners_14_days": 111,
       "release": {
         "tag": "v2.12.0",
         "published_at": "2026-10-08T22:30:26Z",
