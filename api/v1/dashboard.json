@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-29T07:09:44.149Z",
+  "generated_at": "2026-10-30T07:11:57.152Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -626,37 +626,41 @@
         {
           "date": "2026-10-27",
           "count": 50
+        },
+        {
+          "date": "2026-10-28",
+          "count": 214
         }
       ],
       "totals": {
-        "all": 9725,
-        "last_7_days": 1011,
-        "last_30_days": 3026
+        "all": 9939,
+        "last_7_days": 1225,
+        "last_30_days": 3095
       },
       "release": {
-        "tag": "v3.0.0-alpha.1",
-        "published_at": "2026-10-28T14:23:49Z",
-        "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.1",
-        "notes": "- Saved agents, ephemeral and saved-agent sessions, project secrets/numbers, and campaign resources are available in the preview checkout. See [Saving agents](docs/guides/saved-agents.md).\n- Aligned the preview with the bundled [OpenAPI contract](openapi.yaml): vendor-specific `credential.fields`, explicit secret references for saved credentials, optional session UID, session runtime PATCH, 50,000-contact/10 MiB campaigns, and current number/call-policy fields. Session and campaign create/action idempotency lasts 24 hours; writes do not retry automatically. Removed public campaign retry fields and advertised session analysis results.\n- The current preview service rollout is US-only. Regional availability may expand independently of SDK releases; this rollout note does not introduce a new SDK region restriction.\n\n- Saved-agent and ephemeral-session preview APIs support cascaded pipelines only. Removed realtime/MLLM from the preview contract and reject unsupported MLLM requests before HTTP. Existing inline MLLM sessions remain supported."
+        "tag": "v3.0.0-alpha.3",
+        "published_at": "2026-10-30T04:28:31Z",
+        "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.3",
+        "notes": "- Support existing Customer ID/Secret HTTP Basic authentication alongside token007 for Platform and legacy requests. Optional App Certificates continue to sign RTC tokens without changing Basic REST authentication.\n\n- Generate Platform authorization with the official ConvoAI service, using agora-token 2.0.7 while preserving RTC and RTM expiration behavior.\n- Retain required provider language parameters for AssemblyAI, Google, Microsoft, Sarvam, and Speechmatics ASR. Default Sarvam TTS to bulbul:v3 without overriding explicit models."
       },
       "releases": [
+        {
+          "tag": "v3.0.0-alpha.3",
+          "published_at": "2026-10-30T04:28:31Z",
+          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.3",
+          "notes": "- Support existing Customer ID/Secret HTTP Basic authentication alongside token007 for Platform and legacy requests. Optional App Certificates continue to sign RTC tokens without changing Basic REST authentication.\n\n- Generate Platform authorization with the official ConvoAI service, using agora-token 2.0.7 while preserving RTC and RTM expiration behavior.\n- Retain required provider language parameters for AssemblyAI, Google, Microsoft, Sarvam, and Speechmatics ASR. Default Sarvam TTS to bulbul:v3 without overriding explicit models."
+        },
+        {
+          "tag": "v3.0.0-alpha.2",
+          "published_at": "2026-10-29T07:39:35Z",
+          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.2",
+          "notes": "- Fix Platform provider defaults, Gemini/Bedrock credentials, ASR keywords/language/endpoints, and generic/HeyGen avatar mapping. Add typed MiniMax voice/audio controls.\n- Add explicit ephemeral and outbound-call session helpers, fixed-UID RTC token generation, full inbound call policy, optional extraction/secret metadata response types, and token-only client typing.\n- Make source builds portable and build Git installs through prepare. Keep compatibility CI tarball capture independent of prepare output. Correct saved-agent examples. Model availability for managed OpenAI is validated by the service.\n- Preserve Gemini credentials during endpoint normalization and capture RTC signing identity per session. Retain generated RTC tokens across failed-start retries, refresh them for new unkeyed session lifecycles, and leave unsupported UIDs to server provisioning. Reject mixed telephony and RTC options before normalization."
+        },
         {
           "tag": "v3.0.0-alpha.1",
           "published_at": "2026-10-28T14:23:49Z",
           "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.1",
           "notes": "- Saved agents, ephemeral and saved-agent sessions, project secrets/numbers, and campaign resources are available in the preview checkout. See [Saving agents](docs/guides/saved-agents.md).\n- Aligned the preview with the bundled [OpenAPI contract](openapi.yaml): vendor-specific `credential.fields`, explicit secret references for saved credentials, optional session UID, session runtime PATCH, 50,000-contact/10 MiB campaigns, and current number/call-policy fields. Session and campaign create/action idempotency lasts 24 hours; writes do not retry automatically. Removed public campaign retry fields and advertised session analysis results.\n- The current preview service rollout is US-only. Regional availability may expand independently of SDK releases; this rollout note does not introduce a new SDK region restriction.\n\n- Saved-agent and ephemeral-session preview APIs support cascaded pipelines only. Removed realtime/MLLM from the preview contract and reject unsupported MLLM requests before HTTP. Existing inline MLLM sessions remain supported."
-        },
-        {
-          "tag": "v2.12.0",
-          "published_at": "2026-10-08T22:31:55Z",
-          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v2.12.0",
-          "notes": "### Added\n\n- **Tavus, Protoface, and LemonSlice avatars** — Added AgentKit `Tavus`, `Protoface`, and `LemonSlice` aliases of `GenericAvatar`, with `TavusOptions`, `ProtofaceOptions`, and `LemonSliceOptions` available from AgentKit and the package root. All share the generic constructor, validation, session field and token auto-fill behavior, and serialize with `vendor: \"generic\"`.\n- **Avatar guide examples** — Documented all three branded aliases, including the Tavus Agora conversation endpoint."
-        },
-        {
-          "tag": "v2.11.0",
-          "published_at": "2026-09-23T16:13:38Z",
-          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v2.11.0",
-          "notes": "### Added\n\n- **Gemini TTS preview** — Added the Agent Kit Gemini TTS provider with the `gemini-3.8-flash-tts` model, default `Puck` voice, and optional natural-language `style`. Credentials serialize inside `tts.params`.\n- **Session-scoped TTS routing** — Gemini TTS selects the preview endpoint with `agora-feature: gemini-live` for the full session lifecycle, including raw TTS configs, without changing the shared client's production route. Gemini ASR, Gemini Live, and OpenAI GPT Live retain their production routing.\n\n- **Preview config types** — Exported `GeminiTTSConfig`, model constants, and constructor options from Agent Kit. Generated production TTS schemas remain unchanged."
         }
       ]
     },
@@ -672,10 +676,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-07-30",
-          "count": 429
-        },
         {
           "date": "2026-07-31",
           "count": 854
@@ -1035,37 +1035,41 @@
         {
           "date": "2026-10-28",
           "count": 666
+        },
+        {
+          "date": "2026-10-29",
+          "count": 935
         }
       ],
       "totals": {
-        "all": 72281,
-        "last_7_days": 2294,
-        "last_30_days": 14171
+        "all": 73216,
+        "last_7_days": 2927,
+        "last_30_days": 14666
       },
       "release": {
-        "tag": "v3.0.0-alpha.1",
-        "published_at": "2026-10-28T14:17:57Z",
-        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.1",
-        "notes": "- Shared root OpenAPI JSON/YAML, local reproducible wire generator, sync/async/raw session PATCH, and cascaded-only preview contracts.\n- Realtime/MLLM configurations and runtime updates are rejected by preview APIs before network access; existing inline MLLM sessions remain supported.\n- BYOK `credential.fields` preserves vendor credential names; saved writes require explicit secret references, ephemeral sessions permit inline values.\n- Optional RTC UID, inbound/voicemail end-call policies, SIP IPv4 allowlists, campaign create retention, 50,000-contact / 10 MiB limits. Removed campaign retry fields are rejected.\n- Six idempotent POST operations use optional 1–256 visible ASCII keys, 24-hour replay and replay response headers. No automatic write retries or region availability gates.\n\n### Preview rollout\n\nThe current stored-agent, session and campaign preview rollout is available in the US only (PM confirmation, 2026-10-27). Availability may expand as rollout progresses."
+        "tag": "v3.0.0-alpha.3",
+        "published_at": "2026-10-30T04:22:41Z",
+        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.3",
+        "notes": "- Support Basic REST authentication with `customer_id`/`customer_secret` alongside Token007 authentication in synchronous and asynchronous clients. Optional App Certificate signing remains available for RTC transport tokens.\n\n- Include the ConvoAI service in SDK-generated authorization tokens by integrating the latest production token builder fix. Regression tests verify service grants, signatures and sync/async Platform session request headers.\n- Preserve ASR provider language parameters for AssemblyAI, Google, Microsoft, Sarvam and Speechmatics, alongside the interaction language.\n- Default Sarvam TTS to `bulbul:v3`, preserving explicit model overrides.\n- Reject malformed App ID/certificate values, including whitespace."
       },
       "releases": [
+        {
+          "tag": "v3.0.0-alpha.3",
+          "published_at": "2026-10-30T04:22:41Z",
+          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.3",
+          "notes": "- Support Basic REST authentication with `customer_id`/`customer_secret` alongside Token007 authentication in synchronous and asynchronous clients. Optional App Certificate signing remains available for RTC transport tokens.\n\n- Include the ConvoAI service in SDK-generated authorization tokens by integrating the latest production token builder fix. Regression tests verify service grants, signatures and sync/async Platform session request headers.\n- Preserve ASR provider language parameters for AssemblyAI, Google, Microsoft, Sarvam and Speechmatics, alongside the interaction language.\n- Default Sarvam TTS to `bulbul:v3`, preserving explicit model overrides.\n- Reject malformed App ID/certificate values, including whitespace."
+        },
+        {
+          "tag": "v3.0.0-alpha.2",
+          "published_at": "2026-10-29T07:36:34Z",
+          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.2",
+          "notes": "- Correct Platform provider IDs, Gemini and Bedrock credentials, ASR language/keywords/endpoints, and HeyGen mapping. Managed OpenAI model availability is validated by the service.\n- Add explicit ephemeral-session and outbound-call helpers, full inbound call policies, RTC token generation for fixed numeric UIDs, Azure resource names, optional session analysis and secret-key metadata.\n- Fix Pydantic import configuration warnings and document Windows source checkout requirements.\n- Preserve Gemini credentials during endpoint normalization and capture RTC signing identity per session. Retain generated RTC tokens across failed-start retries, refresh them for new unkeyed session lifecycles, and leave unsupported UIDs to server provisioning."
+        },
         {
           "tag": "v3.0.0-alpha.1",
           "published_at": "2026-10-28T14:17:57Z",
           "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.1",
           "notes": "- Shared root OpenAPI JSON/YAML, local reproducible wire generator, sync/async/raw session PATCH, and cascaded-only preview contracts.\n- Realtime/MLLM configurations and runtime updates are rejected by preview APIs before network access; existing inline MLLM sessions remain supported.\n- BYOK `credential.fields` preserves vendor credential names; saved writes require explicit secret references, ephemeral sessions permit inline values.\n- Optional RTC UID, inbound/voicemail end-call policies, SIP IPv4 allowlists, campaign create retention, 50,000-contact / 10 MiB limits. Removed campaign retry fields are rejected.\n- Six idempotent POST operations use optional 1–256 visible ASCII keys, 24-hour replay and replay response headers. No automatic write retries or region availability gates.\n\n### Preview rollout\n\nThe current stored-agent, session and campaign preview rollout is available in the US only (PM confirmation, 2026-10-27). Availability may expand as rollout progresses."
-        },
-        {
-          "tag": "v2.12.0",
-          "published_at": "2026-10-08T22:29:48Z",
-          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.12.0",
-          "notes": "### Added\n\n- **Tavus, Protoface, and LemonSlice avatars** — Added `Tavus`, `Protoface`, and `LemonSlice` as AgentKit aliases of `GenericAvatar`, exported from the package root, AgentKit, and vendor entrypoints. All retain the generic constructor, validation, session enrichment, and `vendor=\"generic\"` wire configuration."
-        },
-        {
-          "tag": "v2.11.0",
-          "published_at": "2026-09-23T16:09:57Z",
-          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.11.0",
-          "notes": "### Added\n\n- **Gemini TTS preview** — Added the Agent Kit Gemini TTS provider with the `gemini-3.8-flash-tts` model, default `Puck` voice, and optional natural-language `style`. Credentials serialize inside `tts.params`.\n- **Session-scoped TTS routing** — Gemini TTS selects the preview endpoint with `agora-feature: gemini-live` for the full session lifecycle, including raw TTS configs, without changing the shared client's production route. Gemini ASR, Gemini Live, and OpenAI GPT Live retain their production routing."
         }
       ]
     },
@@ -1392,14 +1396,18 @@
         {
           "date": "2026-10-27",
           "count": 11
+        },
+        {
+          "date": "2026-10-28",
+          "count": 159
         }
       ],
       "totals": {
-        "all": 2236,
-        "last_7_days": 72,
-        "last_30_days": 626
+        "all": 2395,
+        "last_7_days": 210,
+        "last_30_days": 781
       },
-      "unique_cloners_14_days": 86,
+      "unique_cloners_14_days": 101,
       "release": {
         "tag": "v2.12.0",
         "published_at": "2026-10-08T22:30:26Z",
