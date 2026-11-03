@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T07:42:48.531Z",
+  "generated_at": "2026-11-03T07:57:40.711Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -10,7 +10,7 @@
       "package": "agora-agents",
       "metric": "downloads",
       "metric_label": "Downloads",
-      "version": "2.12.0",
+      "version": "2.13.0",
       "package_url": "https://www.npmjs.com/package/agora-agents",
       "repository_url": "https://github.com/AgoraIO/agora-agents-ts",
       "data_source_url": "https://api.npmjs.org/downloads/range/last-month/agora-agents",
@@ -197,7 +197,7 @@
         },
         {
           "date": "2026-07-12",
-          "count": 0
+          "count": 1
         },
         {
           "date": "2026-07-13",
@@ -637,25 +637,35 @@
         },
         {
           "date": "2026-10-30",
-          "count": 0
+          "count": 159
         },
         {
           "date": "2026-10-31",
-          "count": 0
+          "count": 29
+        },
+        {
+          "date": "2026-11-01",
+          "count": 37
         }
       ],
       "totals": {
-        "all": 10140,
-        "last_7_days": 787,
-        "last_30_days": 2856
+        "all": 10366,
+        "last_7_days": 889,
+        "last_30_days": 2899
       },
       "release": {
-        "tag": "v3.0.0-alpha.3",
-        "published_at": "2026-10-30T04:28:31Z",
-        "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.3",
-        "notes": "- Support existing Customer ID/Secret HTTP Basic authentication alongside token007 for Platform and legacy requests. Optional App Certificates continue to sign RTC tokens without changing Basic REST authentication.\n\n- Generate Platform authorization with the official ConvoAI service, using agora-token 2.0.7 while preserving RTC and RTM expiration behavior.\n- Retain required provider language parameters for AssemblyAI, Google, Microsoft, Sarvam, and Speechmatics ASR. Default Sarvam TTS to bulbul:v3 without overriding explicit models."
+        "tag": "v2.13.0",
+        "published_at": "2026-11-02T08:55:42Z",
+        "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v2.13.0",
+        "notes": "### Added\n\n- Added the global `RTZRSTT` AgentKit vendor and typed RTZR ASR aliases.\n- Added `SpeakConfig` and `withParameters()` support for the new `parameters.speak.batch` setting.\n- Added Sarvam TTS preprocessing, model, speech sample-rate options, and the `SarvamTTSLanguage` enum.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `intended_playback_duration_ms` for interrupted turns. `playback_duration_ms` reports actual playback for both normal and interrupted turns. Session documentation, type assertions, and regression tests cover missing values, zero durations, and pagination.\n - Updated Deepgram STT credentials to serialize as `api_key` and Sarvam TTS sample rate to serialize as `speech_sample_rate`, matching the v2.14 generated API contract.\n\n- **Gemini TTS production routing** — `GeminiTTS` and raw `tts.vendor = \"gemini\"` configurations now use the configured regional production endpoint without the `gemini-live` preview gate for the full session lifecycle. The implementation and types live in the production TTS vendor module; package-root and historical preview exports alias the same implementation, with v2.11.0 options, defaults, validation, optional `style`, and `tts.params` wire fields preserved.\n- **Gemini TTS generated schema support** — The production vendor now uses the generated Gemini TTS shape and accepts `additionalParams` and `skipPatterns` while keeping preview-era calls compatible.\n\n- Tavus, Protoface, and LemonSlice now wrap GenericAvatar with provider endpoint defaults. Explicit endpoint overrides, generic wire serialization, and session/token handling remain supported.\n- LemonSlice defaults `avatarId` to the vendor-recommended fixed value `lemonslice`; explicit overrides remain supported. Typed `agentId`, `agentImageUrl`, `agentImageBase64`, and `aspectRatio` serialize directly as snake_case avatar parameters. Exactly one nonempty string selector is required in effective merged parameters; malformed selectors and invalid aspect ratios are rejected. Typed fields override additional parameters without mutating caller inputs. Ratios are `2x3`, `9x16`, or `1x1`; omitted ratios use the provider default `2x3`.\n- Source compatibility caveat: branded constructors are no longer exact aliases of GenericAvatar, and LemonSlice selector validation is now mandatory, including for existing additionalParams usage."
       },
       "releases": [
+        {
+          "tag": "v2.13.0",
+          "published_at": "2026-11-02T08:55:42Z",
+          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v2.13.0",
+          "notes": "### Added\n\n- Added the global `RTZRSTT` AgentKit vendor and typed RTZR ASR aliases.\n- Added `SpeakConfig` and `withParameters()` support for the new `parameters.speak.batch` setting.\n- Added Sarvam TTS preprocessing, model, speech sample-rate options, and the `SarvamTTSLanguage` enum.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `intended_playback_duration_ms` for interrupted turns. `playback_duration_ms` reports actual playback for both normal and interrupted turns. Session documentation, type assertions, and regression tests cover missing values, zero durations, and pagination.\n - Updated Deepgram STT credentials to serialize as `api_key` and Sarvam TTS sample rate to serialize as `speech_sample_rate`, matching the v2.14 generated API contract.\n\n- **Gemini TTS production routing** — `GeminiTTS` and raw `tts.vendor = \"gemini\"` configurations now use the configured regional production endpoint without the `gemini-live` preview gate for the full session lifecycle. The implementation and types live in the production TTS vendor module; package-root and historical preview exports alias the same implementation, with v2.11.0 options, defaults, validation, optional `style`, and `tts.params` wire fields preserved.\n- **Gemini TTS generated schema support** — The production vendor now uses the generated Gemini TTS shape and accepts `additionalParams` and `skipPatterns` while keeping preview-era calls compatible.\n\n- Tavus, Protoface, and LemonSlice now wrap GenericAvatar with provider endpoint defaults. Explicit endpoint overrides, generic wire serialization, and session/token handling remain supported.\n- LemonSlice defaults `avatarId` to the vendor-recommended fixed value `lemonslice`; explicit overrides remain supported. Typed `agentId`, `agentImageUrl`, `agentImageBase64`, and `aspectRatio` serialize directly as snake_case avatar parameters. Exactly one nonempty string selector is required in effective merged parameters; malformed selectors and invalid aspect ratios are rejected. Typed fields override additional parameters without mutating caller inputs. Ratios are `2x3`, `9x16`, or `1x1`; omitted ratios use the provider default `2x3`.\n- Source compatibility caveat: branded constructors are no longer exact aliases of GenericAvatar, and LemonSlice selector validation is now mandatory, including for existing additionalParams usage."
+        },
         {
           "tag": "v3.0.0-alpha.3",
           "published_at": "2026-10-30T04:28:31Z",
@@ -667,12 +677,6 @@
           "published_at": "2026-10-29T07:39:35Z",
           "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.2",
           "notes": "- Fix Platform provider defaults, Gemini/Bedrock credentials, ASR keywords/language/endpoints, and generic/HeyGen avatar mapping. Add typed MiniMax voice/audio controls.\n- Add explicit ephemeral and outbound-call session helpers, fixed-UID RTC token generation, full inbound call policy, optional extraction/secret metadata response types, and token-only client typing.\n- Make source builds portable and build Git installs through prepare. Keep compatibility CI tarball capture independent of prepare output. Correct saved-agent examples. Model availability for managed OpenAI is validated by the service.\n- Preserve Gemini credentials during endpoint normalization and capture RTC signing identity per session. Retain generated RTC tokens across failed-start retries, refresh them for new unkeyed session lifecycles, and leave unsupported UIDs to server provisioning. Reject mixed telephony and RTC options before normalization."
-        },
-        {
-          "tag": "v3.0.0-alpha.1",
-          "published_at": "2026-10-28T14:23:49Z",
-          "url": "https://github.com/AgoraIO/agora-agents-ts/releases/tag/v3.0.0-alpha.1",
-          "notes": "- Saved agents, ephemeral and saved-agent sessions, project secrets/numbers, and campaign resources are available in the preview checkout. See [Saving agents](docs/guides/saved-agents.md).\n- Aligned the preview with the bundled [OpenAPI contract](openapi.yaml): vendor-specific `credential.fields`, explicit secret references for saved credentials, optional session UID, session runtime PATCH, 50,000-contact/10 MiB campaigns, and current number/call-policy fields. Session and campaign create/action idempotency lasts 24 hours; writes do not retry automatically. Removed public campaign retry fields and advertised session analysis results.\n- The current preview service rollout is US-only. Regional availability may expand independently of SDK releases; this rollout note does not introduce a new SDK region restriction.\n\n- Saved-agent and ephemeral-session preview APIs support cascaded pipelines only. Removed realtime/MLLM from the preview contract and reject unsupported MLLM requests before HTTP. Existing inline MLLM sessions remain supported."
         }
       ]
     },
@@ -683,15 +687,11 @@
       "package": "agora-agents",
       "metric": "downloads",
       "metric_label": "Downloads",
-      "version": "2.12.0",
+      "version": "2.13.0",
       "package_url": "https://pypi.org/project/agora-agents/",
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-08-03",
-          "count": 394
-        },
         {
           "date": "2026-08-04",
           "count": 444
@@ -1051,20 +1051,30 @@
         {
           "date": "2026-11-01",
           "count": 278
+        },
+        {
+          "date": "2026-11-02",
+          "count": 565
         }
       ],
       "totals": {
-        "all": 74763,
-        "last_7_days": 3689,
-        "last_30_days": 14738
+        "all": 75328,
+        "last_7_days": 4005,
+        "last_30_days": 14845
       },
       "release": {
-        "tag": "v3.0.0-alpha.3",
-        "published_at": "2026-10-30T04:22:41Z",
-        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.3",
-        "notes": "- Support Basic REST authentication with `customer_id`/`customer_secret` alongside Token007 authentication in synchronous and asynchronous clients. Optional App Certificate signing remains available for RTC transport tokens.\n\n- Include the ConvoAI service in SDK-generated authorization tokens by integrating the latest production token builder fix. Regression tests verify service grants, signatures and sync/async Platform session request headers.\n- Preserve ASR provider language parameters for AssemblyAI, Google, Microsoft, Sarvam and Speechmatics, alongside the interaction language.\n- Default Sarvam TTS to `bulbul:v3`, preserving explicit model overrides.\n- Reject malformed App ID/certificate values, including whitespace."
+        "tag": "v2.13.0",
+        "published_at": "2026-11-02T08:53:14Z",
+        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.13.0",
+        "notes": "### Added\n\n- **RTZR global STT** — Added the global-only `RtzrSTT` AgentKit vendor with typed credentials, recognition options, vendor catalog registration, and generated request serialization.\n- **Speak parameters** — Exposed the generated `SpeakConfig`/`ParametersSpeak` types through `SessionParams` so `parameters.speak.batch` can be configured with `Agent.with_parameters()`.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `intended_playback_duration_ms` for interrupted turns. `playback_duration_ms` reports actual playback for both normal and interrupted turns. Session documentation and sync/async regression tests cover missing values, zero durations, and pagination.\n- **Sarvam TTS v2.14 parameters** — Added `speech_sample_rate`, `enable_preprocessing`, `model`, and flattened `additional_params` support. The legacy `sample_rate` input remains supported as a deprecated alias.\n - **Generated SDK alignment** — Updated AgentKit exports, global vendor routing, request validation, avatar sample-rate handling, documentation, and feature-focused regression tests for the latest `engine-v2.14` generated API.\n\n- **Gemini TTS production routing** — Synchronous and asynchronous `GeminiTTS` sessions, including raw configurations, now use the configured regional production endpoint without the `gemini-live` preview gate. The implementation is registered in the global TTS catalog, while package-root and historical preview imports remain aliases with the same v2.11.0 options, defaults, validation, optional `style`, and `tts.params` wire fields. Compatibility with the generated request schema no longer depends on preview routing.\n- **Gemini TTS generated schema support** — The production vendor now uses the generated Gemini TTS shape and accepts `additional_params` and `skip_patterns` while keeping preview-era calls compatible.\n\n- Tavus, Protoface, and LemonSlice are minimal GenericAvatar provider wrappers with default API URLs; explicit URL overrides and generic wire/session/token handling remain supported.\n- LemonSlice defaults `avatar_id` to the vendor-recommended fixed value `lemonslice` (explicit overrides remain supported). Typed `agent_id`, `agent_image_url`, `agent_image_base64`, and `aspect_ratio` serialize directly in avatar params, overriding colliding additional params. Allowed ratios are `2x3`, `9x16`, and `1x1`; unset ratio is omitted (provider default `2x3`).\n- Source compatibility: branded providers are no longer exact aliases of GenericAvatar. LemonSlice now requires exactly one nonempty string selector in effective merged params; malformed, missing, or multiple selectors and invalid ratios are rejected. Existing valid additional params selectors remain supported."
       },
       "releases": [
+        {
+          "tag": "v2.13.0",
+          "published_at": "2026-11-02T08:53:14Z",
+          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.13.0",
+          "notes": "### Added\n\n- **RTZR global STT** — Added the global-only `RtzrSTT` AgentKit vendor with typed credentials, recognition options, vendor catalog registration, and generated request serialization.\n- **Speak parameters** — Exposed the generated `SpeakConfig`/`ParametersSpeak` types through `SessionParams` so `parameters.speak.batch` can be configured with `Agent.with_parameters()`.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `intended_playback_duration_ms` for interrupted turns. `playback_duration_ms` reports actual playback for both normal and interrupted turns. Session documentation and sync/async regression tests cover missing values, zero durations, and pagination.\n- **Sarvam TTS v2.14 parameters** — Added `speech_sample_rate`, `enable_preprocessing`, `model`, and flattened `additional_params` support. The legacy `sample_rate` input remains supported as a deprecated alias.\n - **Generated SDK alignment** — Updated AgentKit exports, global vendor routing, request validation, avatar sample-rate handling, documentation, and feature-focused regression tests for the latest `engine-v2.14` generated API.\n\n- **Gemini TTS production routing** — Synchronous and asynchronous `GeminiTTS` sessions, including raw configurations, now use the configured regional production endpoint without the `gemini-live` preview gate. The implementation is registered in the global TTS catalog, while package-root and historical preview imports remain aliases with the same v2.11.0 options, defaults, validation, optional `style`, and `tts.params` wire fields. Compatibility with the generated request schema no longer depends on preview routing.\n- **Gemini TTS generated schema support** — The production vendor now uses the generated Gemini TTS shape and accepts `additional_params` and `skip_patterns` while keeping preview-era calls compatible.\n\n- Tavus, Protoface, and LemonSlice are minimal GenericAvatar provider wrappers with default API URLs; explicit URL overrides and generic wire/session/token handling remain supported.\n- LemonSlice defaults `avatar_id` to the vendor-recommended fixed value `lemonslice` (explicit overrides remain supported). Typed `agent_id`, `agent_image_url`, `agent_image_base64`, and `aspect_ratio` serialize directly in avatar params, overriding colliding additional params. Allowed ratios are `2x3`, `9x16`, and `1x1`; unset ratio is omitted (provider default `2x3`).\n- Source compatibility: branded providers are no longer exact aliases of GenericAvatar. LemonSlice now requires exactly one nonempty string selector in effective merged params; malformed, missing, or multiple selectors and invalid ratios are rejected. Existing valid additional params selectors remain supported."
+        },
         {
           "tag": "v3.0.0-alpha.3",
           "published_at": "2026-10-30T04:22:41Z",
@@ -1076,12 +1086,6 @@
           "published_at": "2026-10-29T07:36:34Z",
           "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.2",
           "notes": "- Correct Platform provider IDs, Gemini and Bedrock credentials, ASR language/keywords/endpoints, and HeyGen mapping. Managed OpenAI model availability is validated by the service.\n- Add explicit ephemeral-session and outbound-call helpers, full inbound call policies, RTC token generation for fixed numeric UIDs, Azure resource names, optional session analysis and secret-key metadata.\n- Fix Pydantic import configuration warnings and document Windows source checkout requirements.\n- Preserve Gemini credentials during endpoint normalization and capture RTC signing identity per session. Retain generated RTC tokens across failed-start retries, refresh them for new unkeyed session lifecycles, and leave unsupported UIDs to server provisioning."
-        },
-        {
-          "tag": "v3.0.0-alpha.1",
-          "published_at": "2026-10-28T14:17:57Z",
-          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.1",
-          "notes": "- Shared root OpenAPI JSON/YAML, local reproducible wire generator, sync/async/raw session PATCH, and cascaded-only preview contracts.\n- Realtime/MLLM configurations and runtime updates are rejected by preview APIs before network access; existing inline MLLM sessions remain supported.\n- BYOK `credential.fields` preserves vendor credential names; saved writes require explicit secret references, ephemeral sessions permit inline values.\n- Optional RTC UID, inbound/voicemail end-call policies, SIP IPv4 allowlists, campaign create retention, 50,000-contact / 10 MiB limits. Removed campaign retry fields are rejected.\n- Six idempotent POST operations use optional 1–256 visible ASCII keys, 24-hour replay and replay response headers. No automatic write retries or region availability gates.\n\n### Preview rollout\n\nThe current stored-agent, session and campaign preview rollout is available in the US only (PM confirmation, 2026-10-27). Availability may expand as rollout progresses."
         }
       ]
     },
@@ -1092,7 +1096,7 @@
       "package": "AgoraIO/agora-agents-go",
       "metric": "clones",
       "metric_label": "Repository clones",
-      "version": "2.12.0",
+      "version": "2.13.0",
       "package_url": "https://github.com/AgoraIO/agora-agents-go",
       "repository_url": "https://github.com/AgoraIO/agora-agents-go",
       "data_source_url": "https://api.github.com/repos/AgoraIO/agora-agents-go/traffic/clones",
@@ -1424,21 +1428,35 @@
         {
           "date": "2026-10-31",
           "count": 134
+        },
+        {
+          "date": "2026-11-01",
+          "count": 2
+        },
+        {
+          "date": "2026-11-02",
+          "count": 29
         }
       ],
       "totals": {
-        "all": 2879,
-        "last_7_days": 672,
-        "last_30_days": 1254
+        "all": 2910,
+        "last_7_days": 685,
+        "last_30_days": 1275
       },
-      "unique_cloners_14_days": 197,
+      "unique_cloners_14_days": 213,
       "release": {
-        "tag": "v2.12.0",
-        "published_at": "2026-10-08T22:30:26Z",
-        "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.12.0",
-        "notes": "### Added\n\n- **Tavus, Protoface, and LemonSlice avatar aliases** — AgentKit now exports `Tavus`, `Protoface`, `TavusOptions`, `ProtofaceOptions`, `NewTavus`, `NewProtoface`, `LemonSlice`, `LemonSliceOptions`, and `NewLemonSlice` from `agentkit/vendors`. All three providers reuse `GenericAvatar` configuration, validation, token handling, and the `generic` wire vendor. The avatar guide includes examples, with public API and serialization tests covering the aliases."
+        "tag": "v2.13.0",
+        "published_at": "2026-11-02T08:53:33Z",
+        "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.13.0",
+        "notes": "### Added\n\n- **RTZR STT** — Added the global `NewRTZRSTT` provider with typed options and `RtzrAsr`/`RtzrAsrParams` aliases.\n- **Speak configuration** — Added `SpeakConfig` and `ParametersSpeak` aliases for `WithParameters` support of `parameters.speak.batch` in the global and CN facades.\n- **Sarvam TTS options** — Added `SpeechSampleRate`, `EnablePreprocessing`, `Model`, flattened `AdditionalParams`, and `SarvamTTSLanguage` constants.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `IntendedPlaybackDurationMs` for interrupted turns. `PlaybackDurationMs` reports actual playback for both normal and interrupted turns. Session documentation and regression tests cover missing values, zero durations, and pagination.\n- **Gemini TTS production routing** — `NewGeminiTTS` and raw `tts.vendor = \"gemini\"` configurations now use the configured regional production endpoint without the `gemini-live` preview gate for the full session lifecycle. The v2.11.0 constructor, model constant, defaults, validation, and `tts.params` wire fields remain compatible; preview routing helpers and constants remain exported.\n- **Deepgram STT credentials** — `APIKey` now serializes as `asr.params.api_key`. Legacy raw `key` configurations are normalized before sending, and both credential fields prevent managed ASR preset inference.\n- **Sarvam TTS sample rate** — The deprecated `SampleRate` alias now serializes as `speech_sample_rate`; `SpeechSampleRate` takes precedence. Avatar validation recognizes the configured speech sample rate, including custom TTS configs.\n\n- Tavus, Protoface, and LemonSlice are minimal provider wrappers with default API endpoints, explicit URL overrides, and shared GenericAvatar serialization, session defaults, and token handling.\n- LemonSlice defaults AvatarID to the vendor-recommended fixed `lemonslice`; explicit overrides remain supported. Typed optional selector and aspect-ratio fields serialize directly in avatar.params and override AdditionalParams without mutating caller input.\n- **Source compatibility:** these providers are no longer exact aliases of GenericAvatar, and LemonSliceOptions is now a superset rather than an exact GenericAvatarOptions alias. TavusOptions and ProtofaceOptions retain their GenericAvatarOptions aliases. LemonSlice now requires exactly one nonempty string selector (agent_id, agent_image_url, or agent_image_base64) in the effective merged parameters. Malformed supplied selectors are rejected. Optional aspect_ratio accepts only 2x3, 9x16, or 1x1; omission retains the provider default 2x3.\n\n### Fixed\n\n- **Credential redaction** — Debug logging now redacts RTZR client credentials and Sarvam subscription keys."
       },
       "releases": [
+        {
+          "tag": "v2.13.0",
+          "published_at": "2026-11-02T08:53:33Z",
+          "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.13.0",
+          "notes": "### Added\n\n- **RTZR STT** — Added the global `NewRTZRSTT` provider with typed options and `RtzrAsr`/`RtzrAsrParams` aliases.\n- **Speak configuration** — Added `SpeakConfig` and `ParametersSpeak` aliases for `WithParameters` support of `parameters.speak.batch` in the global and CN facades.\n- **Sarvam TTS options** — Added `SpeechSampleRate`, `EnablePreprocessing`, `Model`, flattened `AdditionalParams`, and `SarvamTTSLanguage` constants.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `IntendedPlaybackDurationMs` for interrupted turns. `PlaybackDurationMs` reports actual playback for both normal and interrupted turns. Session documentation and regression tests cover missing values, zero durations, and pagination.\n- **Gemini TTS production routing** — `NewGeminiTTS` and raw `tts.vendor = \"gemini\"` configurations now use the configured regional production endpoint without the `gemini-live` preview gate for the full session lifecycle. The v2.11.0 constructor, model constant, defaults, validation, and `tts.params` wire fields remain compatible; preview routing helpers and constants remain exported.\n- **Deepgram STT credentials** — `APIKey` now serializes as `asr.params.api_key`. Legacy raw `key` configurations are normalized before sending, and both credential fields prevent managed ASR preset inference.\n- **Sarvam TTS sample rate** — The deprecated `SampleRate` alias now serializes as `speech_sample_rate`; `SpeechSampleRate` takes precedence. Avatar validation recognizes the configured speech sample rate, including custom TTS configs.\n\n- Tavus, Protoface, and LemonSlice are minimal provider wrappers with default API endpoints, explicit URL overrides, and shared GenericAvatar serialization, session defaults, and token handling.\n- LemonSlice defaults AvatarID to the vendor-recommended fixed `lemonslice`; explicit overrides remain supported. Typed optional selector and aspect-ratio fields serialize directly in avatar.params and override AdditionalParams without mutating caller input.\n- **Source compatibility:** these providers are no longer exact aliases of GenericAvatar, and LemonSliceOptions is now a superset rather than an exact GenericAvatarOptions alias. TavusOptions and ProtofaceOptions retain their GenericAvatarOptions aliases. LemonSlice now requires exactly one nonempty string selector (agent_id, agent_image_url, or agent_image_base64) in the effective merged parameters. Malformed supplied selectors are rejected. Optional aspect_ratio accepts only 2x3, 9x16, or 1x1; omission retains the provider default 2x3.\n\n### Fixed\n\n- **Credential redaction** — Debug logging now redacts RTZR client credentials and Sarvam subscription keys."
+        },
         {
           "tag": "v2.12.0",
           "published_at": "2026-10-08T22:30:26Z",
@@ -1450,12 +1468,6 @@
           "published_at": "2026-09-23T16:11:37Z",
           "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.11.0",
           "notes": "### Added\n\n- **Gemini TTS preview** — Added the Agent Kit Gemini TTS provider with the `gemini-3.8-flash-tts` model, default `Puck` voice, and optional natural-language `style`. Credentials serialize inside `tts.params`.\n- **Session-scoped TTS routing** — Gemini TTS selects the preview endpoint with `agora-feature: gemini-live` for the full session lifecycle, including raw TTS configs, without changing the shared client's production route. Gemini ASR, Gemini Live, and OpenAI GPT Live retain their production routing."
-        },
-        {
-          "tag": "v2.10.0",
-          "published_at": "2026-09-18T07:56:51Z",
-          "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.10.0",
-          "notes": "### Added\n\n- **Smallest AI providers** — Added `NewSmallestAISTT` and `NewSmallestAITTS` with typed provider options, passthrough parameters, and request-shape coverage.\n- **Typed MLLM tools and MCP servers** — AgentKit MLLM vendors now expose typed inline REST `Tools` and `McpServers` at the top-level `mllm` fields. Qwen Omni and mainland-China LLM vendors support the same options, while the existing map-based GPT Live MCP option remains compatible.\n\n### Changed\n\n- **Gemini Live routing** — All Gemini Live model IDs now use the regional production gateway without a preview feature header and send `greeting_message`. The exported `GeminiLivePreviewURL` and `PreviewFeatureGeminiLive` symbols remain available only for source compatibility and no longer opt requests into preview routing.\n- **OpenAI GPT Live routing** — `NewOpenAIGPTLive` now uses the production regional gateway and no longer sends the preview `agora-feature: live-models` gate. Its typed REST tool and MCP configuration options are documented alongside the production contract.\n\n### Fixed\n\n- **Configuration cloning** — `CloneValue` preserves nil slices as nil, keeps empty slices serializable as `[]`, and copies string/int slices without aliasing the source configuration."
         }
       ]
     }
