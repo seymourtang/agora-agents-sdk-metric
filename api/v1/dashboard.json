@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T07:46:35.272Z",
+  "generated_at": "2026-11-12T08:22:49.755Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -10,7 +10,7 @@
       "package": "agora-agents",
       "metric": "downloads",
       "metric_label": "Downloads",
-      "version": "2.13.1",
+      "version": "2.14.0",
       "package_url": "https://www.npmjs.com/package/agora-agents",
       "repository_url": "https://github.com/AgoraIO/agora-agents-ts",
       "data_source_url": "https://api.npmjs.org/downloads/range/last-month/agora-agents",
@@ -678,12 +678,16 @@
         {
           "date": "2026-11-09",
           "count": 54
+        },
+        {
+          "date": "2026-11-10",
+          "count": 87
         }
       ],
       "totals": {
-        "all": 12354,
-        "last_7_days": 1004,
-        "last_30_days": 3710
+        "all": 12441,
+        "last_7_days": 990,
+        "last_30_days": 3769
       },
       "release": {
         "tag": "v3.0.0-alpha.4",
@@ -719,15 +723,11 @@
       "package": "agora-agents",
       "metric": "downloads",
       "metric_label": "Downloads",
-      "version": "2.13.1",
+      "version": "2.14.0",
       "package_url": "https://pypi.org/project/agora-agents/",
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-08-12",
-          "count": 548
-        },
         {
           "date": "2026-08-13",
           "count": 490
@@ -1087,20 +1087,30 @@
         {
           "date": "2026-11-10",
           "count": 426
+        },
+        {
+          "date": "2026-11-11",
+          "count": 474
         }
       ],
       "totals": {
-        "all": 78755,
-        "last_7_days": 2823,
-        "last_30_days": 13631
+        "all": 79229,
+        "last_7_days": 2988,
+        "last_30_days": 13873
       },
       "release": {
-        "tag": "v3.0.0-alpha.4",
-        "published_at": "2026-11-06T15:19:08Z",
-        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v3.0.0-alpha.4",
-        "notes": "- Add `generate_client_token` for front-end token routes. It grants RTC and RTM only, with no ConvoAI service, so client tokens cannot authenticate ConvoAI REST calls. It accepts a numeric UID or a string user account.\n- Add a structured v3 error taxonomy shared with the Go and TypeScript SDKs. Every error raised by `client.v3.*` and the AgentKit stored-agent, session and number helpers now derives from `AgoraV3Error` and is exactly one of `V3ValidationError` (input rejected before any request; also `ValueError`), `V3ConfigurationError` (invalid origin, client headers or authentication setup; also `ValueError`), `V3ConnectionError` (also `ConnectionError`) with subtype `V3TimeoutError` (also `TimeoutError`), or `V3ApiError` (non-2xx responses and 2xx responses that violate the API contract; also `ApiError`). `V3ApiError` adds `raw_body`, `detail`, `reason`, `request_id` (`Agora-Request-Id`) and `violation`. `PreconditionFailedError` now subclasses `V3ApiError` and keeps `latest()`; `UnsupportedFieldError`, `SecretRefNotSupportedError` and `NumberNotFoundError` (still a `LookupError`) now subclass `V3ValidationError`. All are exported from `agora_agent.v3` and the package root. v2 and generated (non-v3) error behavior is unchanged.\n  - **Migration:** `except ValueError`, `except ApiError` and `except PreconditionFailedError` keep working. Network failures and timeouts on v3 operations no longer leak raw `httpx` exceptions: replace `except httpx.TransportError` / `httpx.TimeoutException` with `except V3ConnectionError` / `V3TimeoutError` (the original `httpx` exception is `error.__cause__`). `str()` of a v3 HTTP error is now `v3 request failed with status <code>: <reason>: <detail> (request ID: <id>)` instead of the generated `headers: ..., status_code: ..., body: ...` dump; read `.status_code`, `.body`, `.reason`, `.detail` and `.request_id` instead of parsing the message. 2xx responses the SDK cannot use now raise `V3ApiError` with the real 2xx status and `.violation` set: a missing or repeated pagination cursor and a missing `ETag` before a guarded update (previously `ValueError`), a session start response without `agent_session_id` (previously `RuntimeError`), and a non-empty 2xx body that is not valid JSON (previously returned as the raw text); catch `V3ApiError` or `AgoraV3Error` instead.\n- Treat a blank or whitespace-only `V3Options.base_url` or `AGORA_AGENTS_V3_BASE_URL` value as unset instead of raising an origin error, and ignore surrounding whitespace. This matches the Go and TypeScript SDKs."
+        "tag": "v2.14.0",
+        "published_at": "2026-11-11T10:20:08Z",
+        "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.14.0",
+        "notes": "### Added\n\n- **Soniox TTS** — Added the global `SonioxTTS` AgentKit provider with typed streaming speech options, speed validation, additional parameters, and skip patterns. Only `api_key` is required; omitted options use provider defaults.\n- **MiniMax Duplex TTS** — Added `agora_agent.cn.MiniMaxDuplexTTS` with voice, audio, pronunciation, and voice modification settings. BYOK credentials, a model, and `voice_id` are required; fractional voice multipliers and explicit `False` values are preserved.\n- **StepFun ASR** — Added `agora_agent.cn.StepFunSTT` with `api_key` and additional parameters. Generated ASR/TTS types and regional vendor routing support all three new providers."
       },
       "releases": [
+        {
+          "tag": "v2.14.0",
+          "published_at": "2026-11-11T10:20:08Z",
+          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.14.0",
+          "notes": "### Added\n\n- **Soniox TTS** — Added the global `SonioxTTS` AgentKit provider with typed streaming speech options, speed validation, additional parameters, and skip patterns. Only `api_key` is required; omitted options use provider defaults.\n- **MiniMax Duplex TTS** — Added `agora_agent.cn.MiniMaxDuplexTTS` with voice, audio, pronunciation, and voice modification settings. BYOK credentials, a model, and `voice_id` are required; fractional voice multipliers and explicit `False` values are preserved.\n- **StepFun ASR** — Added `agora_agent.cn.StepFunSTT` with `api_key` and additional parameters. Generated ASR/TTS types and regional vendor routing support all three new providers."
+        },
         {
           "tag": "v3.0.0-alpha.4",
           "published_at": "2026-11-06T15:19:08Z",
@@ -1112,12 +1122,6 @@
           "published_at": "2026-11-06T15:03:22Z",
           "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.13.1",
           "notes": "### Added\n\n- `generate_client_token`, exported from `agora_agent` and `agora_agent.agentkit`, for front-end token routes. It grants RTC and RTM only, with no ConvoAI service, so client tokens cannot authenticate ConvoAI REST calls. `uid` accepts a numeric UID or a string user account."
-        },
-        {
-          "tag": "v2.13.0",
-          "published_at": "2026-11-02T08:53:14Z",
-          "url": "https://github.com/AgoraIO/agora-agents-python/releases/tag/v2.13.0",
-          "notes": "### Added\n\n- **RTZR global STT** — Added the global-only `RtzrSTT` AgentKit vendor with typed credentials, recognition options, vendor catalog registration, and generated request serialization.\n- **Speak parameters** — Exposed the generated `SpeakConfig`/`ParametersSpeak` types through `SessionParams` so `parameters.speak.batch` can be configured with `Agent.with_parameters()`.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `intended_playback_duration_ms` for interrupted turns. `playback_duration_ms` reports actual playback for both normal and interrupted turns. Session documentation and sync/async regression tests cover missing values, zero durations, and pagination.\n- **Sarvam TTS v2.14 parameters** — Added `speech_sample_rate`, `enable_preprocessing`, `model`, and flattened `additional_params` support. The legacy `sample_rate` input remains supported as a deprecated alias.\n - **Generated SDK alignment** — Updated AgentKit exports, global vendor routing, request validation, avatar sample-rate handling, documentation, and feature-focused regression tests for the latest `engine-v2.14` generated API.\n\n- **Gemini TTS production routing** — Synchronous and asynchronous `GeminiTTS` sessions, including raw configurations, now use the configured regional production endpoint without the `gemini-live` preview gate. The implementation is registered in the global TTS catalog, while package-root and historical preview imports remain aliases with the same v2.11.0 options, defaults, validation, optional `style`, and `tts.params` wire fields. Compatibility with the generated request schema no longer depends on preview routing.\n- **Gemini TTS generated schema support** — The production vendor now uses the generated Gemini TTS shape and accepts `additional_params` and `skip_patterns` while keeping preview-era calls compatible.\n\n- Tavus, Protoface, and LemonSlice are minimal GenericAvatar provider wrappers with default API URLs; explicit URL overrides and generic wire/session/token handling remain supported.\n- LemonSlice defaults `avatar_id` to the vendor-recommended fixed value `lemonslice` (explicit overrides remain supported). Typed `agent_id`, `agent_image_url`, `agent_image_base64`, and `aspect_ratio` serialize directly in avatar params, overriding colliding additional params. Allowed ratios are `2x3`, `9x16`, and `1x1`; unset ratio is omitted (provider default `2x3`).\n- Source compatibility: branded providers are no longer exact aliases of GenericAvatar. LemonSlice now requires exactly one nonempty string selector in effective merged params; malformed, missing, or multiple selectors and invalid ratios are rejected. Existing valid additional params selectors remain supported."
         }
       ]
     },
@@ -1128,7 +1132,7 @@
       "package": "AgoraIO/agora-agents-go",
       "metric": "clones",
       "metric_label": "Repository clones",
-      "version": "2.13.1",
+      "version": "2.14.0",
       "package_url": "https://github.com/AgoraIO/agora-agents-go",
       "repository_url": "https://github.com/AgoraIO/agora-agents-go",
       "data_source_url": "https://api.github.com/repos/AgoraIO/agora-agents-go/traffic/clones",
@@ -1500,21 +1504,31 @@
         {
           "date": "2026-11-10",
           "count": 122
+        },
+        {
+          "date": "2026-11-11",
+          "count": 63
         }
       ],
       "totals": {
-        "all": 3282,
-        "last_7_days": 353,
-        "last_30_days": 1213
+        "all": 3345,
+        "last_7_days": 324,
+        "last_30_days": 1262
       },
-      "unique_cloners_14_days": 271,
+      "unique_cloners_14_days": 268,
       "release": {
-        "tag": "v2.13.1",
-        "published_at": "2026-11-06T15:03:58Z",
-        "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.13.1",
-        "notes": "### Added\n\n- `agentkit.GenerateClientToken` for front-end token routes. It grants RTC and RTM only, with no ConvoAI service, so client tokens cannot authenticate ConvoAI REST calls. `UID` takes the string form of a numeric UID or a user account."
+        "tag": "v2.14.0",
+        "published_at": "2026-11-11T10:20:54Z",
+        "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.14.0",
+        "notes": "### Added\n\n- **Soniox TTS** — Added the global `NewSonioxTTS` provider with typed streaming speech options, speed validation, additional parameters, and skip patterns. Only `APIKey` is required; omitted options use provider defaults.\n- **MiniMax Duplex TTS** — Added the mainland China `NewMiniMaxDuplexTTS` provider with typed voice, audio, pronunciation, and voice modification settings. BYOK credentials, a model, and `VoiceSetting.VoiceID` are required; fractional voice multipliers and explicit `false` values are preserved.\n- **StepFun ASR** — Added the mainland China `NewStepFunSTT` provider with `APIKey` and additional parameters. Generated ASR/TTS unions support all three new vendors through typed configurations and optional visitor extensions, preserving existing visitor interfaces."
       },
       "releases": [
+        {
+          "tag": "v2.14.0",
+          "published_at": "2026-11-11T10:20:54Z",
+          "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.14.0",
+          "notes": "### Added\n\n- **Soniox TTS** — Added the global `NewSonioxTTS` provider with typed streaming speech options, speed validation, additional parameters, and skip patterns. Only `APIKey` is required; omitted options use provider defaults.\n- **MiniMax Duplex TTS** — Added the mainland China `NewMiniMaxDuplexTTS` provider with typed voice, audio, pronunciation, and voice modification settings. BYOK credentials, a model, and `VoiceSetting.VoiceID` are required; fractional voice multipliers and explicit `false` values are preserved.\n- **StepFun ASR** — Added the mainland China `NewStepFunSTT` provider with `APIKey` and additional parameters. Generated ASR/TTS unions support all three new vendors through typed configurations and optional visitor extensions, preserving existing visitor interfaces."
+        },
         {
           "tag": "v2.13.1",
           "published_at": "2026-11-06T15:03:58Z",
@@ -1526,12 +1540,6 @@
           "published_at": "2026-11-02T08:53:33Z",
           "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.13.0",
           "notes": "### Added\n\n- **RTZR STT** — Added the global `NewRTZRSTT` provider with typed options and `RtzrAsr`/`RtzrAsrParams` aliases.\n- **Speak configuration** — Added `SpeakConfig` and `ParametersSpeak` aliases for `WithParameters` support of `parameters.speak.batch` in the global and CN facades.\n- **Sarvam TTS options** — Added `SpeechSampleRate`, `EnablePreprocessing`, `Model`, flattened `AdditionalParams`, and `SarvamTTSLanguage` constants.\n\n### Changed\n\n- **Turn end playback metadata** — Turn analytics now expose optional `IntendedPlaybackDurationMs` for interrupted turns. `PlaybackDurationMs` reports actual playback for both normal and interrupted turns. Session documentation and regression tests cover missing values, zero durations, and pagination.\n- **Gemini TTS production routing** — `NewGeminiTTS` and raw `tts.vendor = \"gemini\"` configurations now use the configured regional production endpoint without the `gemini-live` preview gate for the full session lifecycle. The v2.11.0 constructor, model constant, defaults, validation, and `tts.params` wire fields remain compatible; preview routing helpers and constants remain exported.\n- **Deepgram STT credentials** — `APIKey` now serializes as `asr.params.api_key`. Legacy raw `key` configurations are normalized before sending, and both credential fields prevent managed ASR preset inference.\n- **Sarvam TTS sample rate** — The deprecated `SampleRate` alias now serializes as `speech_sample_rate`; `SpeechSampleRate` takes precedence. Avatar validation recognizes the configured speech sample rate, including custom TTS configs.\n\n- Tavus, Protoface, and LemonSlice are minimal provider wrappers with default API endpoints, explicit URL overrides, and shared GenericAvatar serialization, session defaults, and token handling.\n- LemonSlice defaults AvatarID to the vendor-recommended fixed `lemonslice`; explicit overrides remain supported. Typed optional selector and aspect-ratio fields serialize directly in avatar.params and override AdditionalParams without mutating caller input.\n- **Source compatibility:** these providers are no longer exact aliases of GenericAvatar, and LemonSliceOptions is now a superset rather than an exact GenericAvatarOptions alias. TavusOptions and ProtofaceOptions retain their GenericAvatarOptions aliases. LemonSlice now requires exactly one nonempty string selector (agent_id, agent_image_url, or agent_image_base64) in the effective merged parameters. Malformed supplied selectors are rejected. Optional aspect_ratio accepts only 2x3, 9x16, or 1x1; omission retains the provider default 2x3.\n\n### Fixed\n\n- **Credential redaction** — Debug logging now redacts RTZR client credentials and Sarvam subscription keys."
-        },
-        {
-          "tag": "v2.12.0",
-          "published_at": "2026-10-08T22:30:26Z",
-          "url": "https://github.com/AgoraIO/agora-agents-go/releases/tag/v2.12.0",
-          "notes": "### Added\n\n- **Tavus, Protoface, and LemonSlice avatar aliases** — AgentKit now exports `Tavus`, `Protoface`, `TavusOptions`, `ProtofaceOptions`, `NewTavus`, `NewProtoface`, `LemonSlice`, `LemonSliceOptions`, and `NewLemonSlice` from `agentkit/vendors`. All three providers reuse `GenericAvatar` configuration, validation, token handling, and the `generic` wire vendor. The avatar guide includes examples, with public API and serialization tests covering the aliases."
         }
       ]
     }
