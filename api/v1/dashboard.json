@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T08:02:47.680Z",
+  "generated_at": "2026-11-23T09:09:39.598Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -722,12 +722,16 @@
         {
           "date": "2026-11-20",
           "count": 196
+        },
+        {
+          "date": "2026-11-21",
+          "count": 187
         }
       ],
       "totals": {
-        "all": 14139,
-        "last_7_days": 897,
-        "last_30_days": 4616
+        "all": 14326,
+        "last_7_days": 1046,
+        "last_30_days": 4540
       },
       "release": {
         "tag": "v2.15.0",
@@ -768,10 +772,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-08-23",
-          "count": 640
-        },
         {
           "date": "2026-08-24",
           "count": 593
@@ -1131,12 +1131,16 @@
         {
           "date": "2026-11-21",
           "count": 570
+        },
+        {
+          "date": "2026-11-22",
+          "count": 270
         }
       ],
       "totals": {
-        "all": 82927,
-        "last_7_days": 2674,
-        "last_30_days": 12638
+        "all": 83197,
+        "last_7_days": 2756,
+        "last_30_days": 12630
       },
       "release": {
         "tag": "v2.15.0",
@@ -1580,14 +1584,26 @@
         {
           "date": "2026-11-19",
           "count": 76
+        },
+        {
+          "date": "2026-11-20",
+          "count": 55
+        },
+        {
+          "date": "2026-11-21",
+          "count": 7
+        },
+        {
+          "date": "2026-11-22",
+          "count": 15
         }
       ],
       "totals": {
-        "all": 3575,
-        "last_7_days": 208,
-        "last_30_days": 1411
+        "all": 3652,
+        "last_7_days": 198,
+        "last_30_days": 1453
       },
-      "unique_cloners_14_days": 193,
+      "unique_cloners_14_days": 188,
       "release": {
         "tag": "v2.15.0",
         "published_at": "2026-11-19T09:25:14Z",
