@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-24T10:59:46.768Z",
+  "generated_at": "2026-11-25T09:53:15.073Z",
   "timezone": "UTC",
   "sdks": [
     {
@@ -541,7 +541,7 @@
         },
         {
           "date": "2026-10-06",
-          "count": 0
+          "count": 64
         },
         {
           "date": "2026-10-07",
@@ -730,12 +730,16 @@
         {
           "date": "2026-11-22",
           "count": 84
+        },
+        {
+          "date": "2026-11-23",
+          "count": 73
         }
       ],
       "totals": {
-        "all": 14603,
-        "last_7_days": 1076,
-        "last_30_days": 4293
+        "all": 14740,
+        "last_7_days": 1056,
+        "last_30_days": 4321
       },
       "release": {
         "tag": "v2.15.0",
@@ -776,10 +780,6 @@
       "repository_url": "https://github.com/AgoraIO/agora-agents-python",
       "data_source_url": "https://pepy.tech/projects/agora-agents",
       "daily": [
-        {
-          "date": "2026-08-25",
-          "count": 449
-        },
         {
           "date": "2026-08-26",
           "count": 1297
@@ -1139,12 +1139,16 @@
         {
           "date": "2026-11-23",
           "count": 163
+        },
+        {
+          "date": "2026-11-24",
+          "count": 264
         }
       ],
       "totals": {
-        "all": 83360,
-        "last_7_days": 2583,
-        "last_30_days": 12511
+        "all": 83624,
+        "last_7_days": 2644,
+        "last_30_days": 12550
       },
       "release": {
         "tag": "v2.15.0",
@@ -1604,14 +1608,18 @@
         {
           "date": "2026-11-23",
           "count": 269
+        },
+        {
+          "date": "2026-11-24",
+          "count": 8
         }
       ],
       "totals": {
-        "all": 3921,
-        "last_7_days": 456,
-        "last_30_days": 1714
+        "all": 3929,
+        "last_7_days": 460,
+        "last_30_days": 1710
       },
-      "unique_cloners_14_days": 180,
+      "unique_cloners_14_days": 164,
       "release": {
         "tag": "v2.15.0",
         "published_at": "2026-11-19T09:25:14Z",

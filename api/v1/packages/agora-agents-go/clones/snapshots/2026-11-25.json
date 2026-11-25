@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "provider": "github",
+  "repository": "AgoraIO/agora-agents-go",
+  "metric": "clones",
+  "collected_at": "2026-11-25T09:53:08Z",
+  "window_days": 14,
+  "count": 647,
+  "uniques": 164,
+  "daily": [
+    {
+      "date": "2026-11-11",
+      "count": 63,
+      "uniques": 21
+    },
+    {
+      "date": "2026-11-12",
+      "count": 22,
+      "uniques": 10
+    },
+    {
+      "date": "2026-11-13",
+      "count": 30,
+      "uniques": 28
+    },
+    {
+      "date": "2026-11-14",
+      "count": 10,
+      "uniques": 9
+    },
+    {
+      "date": "2026-11-15",
+      "count": 47,
+      "uniques": 16
+    },
+    {
+      "date": "2026-11-16",
+      "count": 11,
+      "uniques": 10
+    },
+    {
+      "date": "2026-11-17",
+      "count": 4,
+      "uniques": 3
+    },
+    {
+      "date": "2026-11-18",
+      "count": 30,
+      "uniques": 21
+    },
+    {
+      "date": "2026-11-19",
+      "count": 76,
+      "uniques": 35
+    },
+    {
+      "date": "2026-11-20",
+      "count": 55,
+      "uniques": 17
+    },
+    {
+      "date": "2026-11-21",
+      "count": 7,
+      "uniques": 6
+    },
+    {
+      "date": "2026-11-22",
+      "count": 15,
+      "uniques": 5
+    },
+    {
+      "date": "2026-11-23",
+      "count": 269,
+      "uniques": 6
+    },
+    {
+      "date": "2026-11-24",
+      "count": 8,
+      "uniques": 4
+    }
+  ]
+}
